@@ -5,6 +5,12 @@ var util = require('util');
 const Path = require('path');
 const JWT = require(Path.join(__dirname, '..', 'lib', 'jwtDecoder.js'));
 var http = require('https');
+var request = require('request');
+var express     = require('express');
+var bodyParser  = require('body-parser');
+
+const { JsonWebTokenError } = require('jsonwebtoken');
+
 
 exports.logExecuteData = [];
 
@@ -61,6 +67,7 @@ exports.edit = function (req, res) {
     
     // Data from the req and put it in an array accessible to the main app.
     //console.log( req.body );
+    console.log("coming in exports of edit");
     logData(req);
     res.send(200, 'Edit');
 };
@@ -78,7 +85,8 @@ exports.save = function (req, res) {
     //console.log("Saved: "+req.body.inArguments[0]);
     
     // Data from the req and put it in an array accessible to the main app.
-    console.log( req.body );
+  //  console.log( req.body );
+    console.log("in the save function ");
     logData(req);
     res.send(200, 'Save');
 };
@@ -93,30 +101,27 @@ exports.execute = function (req, res) {
     console.log("3");	
     console.log("2");	
     console.log("1");	
-    //console.log("Executed: "+req.body.inArguments[0]);
-    
-    var requestBody = req.body.inArguments[0];
+      console.log("Executed: "+req.body.inArguments[0]);
 
+
+    var requestBody = req.body.inArguments[0];
+    var uniqueEmail = req.body.keyValue;
+   // console.log(uniqueEmail);
     const accountSid = requestBody.accountSid;
     const authToken = requestBody.authToken;
     const to = requestBody.to;
-    const from = requestBody.messagingService;
-    const body = requestBody.body;;
+//    const from = requestBody.messagingService;
+    const body = requestBody.body;  
 
-    const client = require('twilio')(accountSid, authToken); 
-     
-    client.messages 
-          .create({ 
-             body: body,
-             messagingService: messagingService,
-             to: to
-           }) 
-          .then(message => console.log(message.sid)) 
-          .done();
+    const { sendMessageFor } = require('simple-telegram-message')
+    const TELEGRAM_TOKEN = '2026995123:AAHkGMzSm-Ebj6WAYAT5ScrQs_meXGaThHU' ;
+    const sendMessage = sendMessageFor(process.env.TELEGRAM_TOKEN, to)
+    sendMessage(`Hi from bot!`)
 
-
-
+    //     .then(message => { 
+    //         console.log(message)});
     // FOR TESTING
+
     logData(req);
     res.send(200, 'Publish');
 
@@ -158,24 +163,26 @@ exports.publish = function (req, res) {
     
     // Data from the req and put it in an array accessible to the main app.
     //console.log( req.body );
-//     logData(req);
-//     res.send(200, 'Publish');
+     logData(req);
+     res.send(200, 'Publish');
+     console.log("coming to publish");
 };
 
 /*
  * POST Handler for /validate/ route of Activity.
  */
 exports.validate = function (req, res) {
-
+    
     console.log("5 -- For Validate");	
     console.log("4");	
     console.log("3");	
     console.log("2");	
     console.log("1");	
-    //console.log("Validated: "+req.body.inArguments[0]);       
-    
+    console.log("Validated: "+req.body.inArguments);       
+    console.log('in the validate function ');
     // Data from the req and put it in an array accessible to the main app.
     //console.log( req.body );
     logData(req);
     res.send(200, 'Validate');
+    
 };

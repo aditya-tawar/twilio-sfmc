@@ -8,6 +8,7 @@
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/require.js"></script>
     <script type="text/javascript">
+        console.log("in the index file ");
         (function() {
             var config = {
                 baseUrl: 'js'
@@ -35,24 +36,25 @@
 </head>
 <body>
 <div id="step1" class="step">
-    <h2>Create a Twilio SMS message:</h2>
-    <p>Twilio's Programmable SMS has the features you’ll need to build quickly and scale to production. We’ve solved the hard problems so you don’t have to.  <a href="https://www.twilio.com/sms" target="_blank">Learn more about about Twilio SMS here</a>.</p>
+    <h2>Create a Telegram Activity :</h2>
+    <p> Send a Message on telelgram  <a href="https://api.telegram.org/bot" target="_blank">Learn more about telegram  here</a>.</p>
     <hr>
     <div class="form-group">
         <div><label for="messageBody">Create message body:</label></div>
-        <input class="form-control" id="messageBody" type="text" name="messageBody" value="">        
-    </div>           
+        <input class="form-control" id="messageBody" type="text" name="messageBody" value="Hey this is your bot calling from journey builder ">        
+    </div>       
+    <!--    
     <div class="form-group">
         <div><label for="messagingService">Messaging Service SID:</label></div>
-        <input class="form-control" id="messagingService" type="text" name="messagingService" value="">
-    </div>     
+        <input class="form-control" id="messagingService" type="text" name="messagingService" value="MGf232a4f33d17d0de947257b32a385dbc">
+    </div>     -->
     <div class="form-group">
         <div><label for="accountSID">Account SID:</label></div>
-        <input class="form-control" id="accountSID" type="text" name="accountSID" value="">
+        <input class="form-control" id="accountSid" type="text" name="accountSID" value="-526739583">
     </div>
     <div class="form-group">
         <div><label for="authToken">Auth Token:</label></div>
-        <input class="form-control" id="authToken" type="text" name="authToken" value="">
+        <input class="form-control" id="authToken" type="text" name="authToken" value="2026995123:AAFoPkUc8NklMF-xfO-VZVj-bcV0zQlsNP8">
     </div>    
 
 </div>

@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jmaitz/twilio-sfmc.git"
+    "url":"https://api.telegram.org"
   },
   "keywords": [
     "twilio",
@@ -23,9 +23,9 @@
   "author": "John Maitz",
   "license": "",
   "bugs": {
-    "url": "https://github.com/jmaitz/twilio-sfmc/issues"
+    "url": "https://api.telegram.org"
   },
-  "homepage": "https://github.com/jmaitz/twilio-sfmc#readme",
+  "homepage": "https://api.telegram.org",
   "dependencies": {
     "body-parser": "^1.18.2",
     "bower": "^1.8.0",
